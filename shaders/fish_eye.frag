@@ -14,5 +14,5 @@ void main() {
     float radius = pow(length(newCoord), 1.5);
     vec2 finalCoords = vec2(radius * cos(theta), radius * sin(theta));
 
-    FragColor = texture(image, texcoord + finalCoords);
+    FragColor = texture(image, finalCoords);
 }

@@ -13,5 +13,6 @@ void main() {
     float redColor = round(texColor.x * 4.0) / 4.0;
     float greenColor = round(texColor.y * 4.0) / 4.0;
     float blueColor = round(texColor.z * 4.0) / 4.0;
+    
     FragColor = vec4(redColor, greenColor, blueColor, 1);
 }

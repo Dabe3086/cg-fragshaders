@@ -11,14 +11,16 @@ uniform sampler2D image;
 out vec4 FragColor;
 
 void main() {
-    vec2 bottom_right = vec2(texcoord.x + width, texcoord.y - height);
-    vec2 bottom_center = vec2(texcoord.x, texcoord.y - height);
-    vec2 bottom_left = vec2(texcoord.x - width, texcoord.y - height);
-    vec2 center_right = vec2(texcoord.x + width, texcoord.y);
-    vec2 center_left = vec2(texcoord.x - width, texcoord.y);
-    vec2 top_right = vec2(texcoord.x + width, texcoord.y + height);
-    vec2 top_center = vec2(texcoord.x, texcoord.y + height);
-    vec2 top_left = vec2(texcoord.x - width, texcoord.y + height);
+    float newWidth = 1.0 / width;
+    float newHeight = 1.0 / height;
+    vec2 bottom_right = vec2(texcoord.x + newWidth, texcoord.y - newHeight);
+    vec2 bottom_center = vec2(texcoord.x, texcoord.y - newHeight);
+    vec2 bottom_left = vec2(texcoord.x - newWidth, texcoord.y - newHeight);
+    vec2 center_right = vec2(texcoord.x + newWidth, texcoord.y);
+    vec2 center_left = vec2(texcoord.x - newWidth, texcoord.y);
+    vec2 top_right = vec2(texcoord.x + newWidth, texcoord.y + newHeight);
+    vec2 top_center = vec2(texcoord.x, texcoord.y + newHeight);
+    vec2 top_left = vec2(texcoord.x - newWidth, texcoord.y + newHeight);
     vec2 sobel_h = bottom_right + (2.0 * center_right) + top_right - bottom_left - (2.0 * center_left) - top_left;
     vec2 sobel_v = bottom_left + (2.0 * bottom_center) + bottom_right - top_left - (2.0 * top_center) - top_right;
     vec2 sobel_edge = sqrt((sobel_h * sobel_h) + (sobel_v * sobel_v));

@@ -10,5 +10,8 @@ uniform sampler2D image;
 out vec4 FragColor;
 
 void main() {
-    FragColor = texture(image, texcoord);
+    vec2 newCoord = vec2((texcoord.x * 2) - 1, (texcoord.y * 2) - 1);
+    float radius = magnitude(newCoord));
+    vec2 offsetCoord = texcoord * (sin(radius * 30.0 - time * 5.0) + 0.5) / 60.0;
+    FragColor = texture(image, texcoord + offsetCoord);
 }

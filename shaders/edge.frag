@@ -23,7 +23,7 @@ void main() {
     vec2 sobel_v = bottom_left + (2.0 * bottom_center) + bottom_right - top_left - (2.0 * top_center) - top_right;
     vec2 sobel_edge = sqrt((sobel_h * sobel_h) + (sobel_v * sobel_v));
     if(length(sobel_edge) >= 0.5){
-        FragColor = texture(image, texcoord);
+        FragColor = vec4(0, 0, 0, 1);
     }
     else{
         FragColor = texture(image, texcoord);

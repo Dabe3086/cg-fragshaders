@@ -10,6 +10,8 @@ out vec4 FragColor;
 
 void main() {
     vec4 texColor = texture(image, texcoord);
-    vec4 roundColor = ((round(texColor.x * 4.0) / 4.0), (round(texColor.y * 4.0) / 4.0), (round(texColor.z * 4.0) / 4.0), 1);
-    FragColor = roundColor;
+    float redColor = round(texColor.x * 4.0) / 4.0;
+    float greenColor = round(texColor.y * 4.0) / 4.0;
+    float blueColor = round(texColor.z * 4.0) / 4.0;
+    FragColor = (redColor, greenColor, blueColor, 1);
 }

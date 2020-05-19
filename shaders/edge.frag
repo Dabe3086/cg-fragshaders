@@ -21,8 +21,8 @@ void main() {
     vec2 top_left = vec2(texcoord.x - width, texcoord.y + height);
     vec2 sobel_h = bottom_right + (2.0 * center_right) + top_right - bottom_left - (2.0 * center_left) - top_left;
     vec2 sobel_v = bottom_left + (2.0 * bottom_center) + bottom_right - top_left - (2.0 * top_center) - top_right;
-    float sobel_edge = sqrt((sobel_h * sobel_h) + (sobel_v * sobel_v));
-    if(sobel_edge >= 0.5){
+    vec2 sobel_edge = sqrt((sobel_h * sobel_h) + (sobel_v * sobel_v));
+    if(length(sobel_edge) >= 0.5){
         FragColor = vec4(0, 0, 0, 1);
     }
     else{

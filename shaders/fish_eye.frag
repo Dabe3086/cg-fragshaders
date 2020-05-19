@@ -13,5 +13,6 @@ void main() {
     float theta = arctan(newCoord.y, newCoord.x);
     float radius = pow(magnitude(newCoord), 1.5);
     vec2 finalCoords = vec2(radius * cos(theta), radius * sin(theta));
+
     FragColor = texture(image, finalCoords);
 }

@@ -11,7 +11,7 @@ out vec4 FragColor;
 
 void main() {
     vec2 newCoord = vec2((texcoord.x * 2.0) - 1.0, (texcoord.y * 2.0) - 1.0);
-    float radius = magnitude(newCoord));
+    float radius = length(newCoord);
     vec2 offsetCoord = texcoord * (sin(radius * 30.0 - time * 5.0) + 0.5) / 60.0;
     FragColor = texture(image, texcoord + offsetCoord);
 }
